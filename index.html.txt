@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clean Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #0b0f19;
+            color: #f3f4f6;
+        }
+
+        /* Subtle Ambient Glows */
+        .bg-glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            filter: blur(140px);
+            opacity: 0.2;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Glassmorphic Elements */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: rgba(139, 92, 246, 0.3);
+            background: rgba(255, 255, 255, 0.04);
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen relative overflow-x-hidden">
+
+    <div class="bg-glow bg-purple-600 top-[-150px] left-[-100px]"></div>
+    <div class="bg-glow bg-blue-600 top-[40%] right-[-150px]"></div>
+
+    <script>
+        const USER_DATA = {
+            fullName: "Alex Sterling",
+            headline: "Full Stack Engineer & Web Architect",
+            bio: "Building clean, high-performance web applications with a focus on intuitive user experiences, robust backend logical engines, and maintainable frontend architecture.",
+            contactEmail: "alex@example.com",
+            githubUrl: "https://github.com",
+            linkedinUrl: "https://linkedin.com",
+            
+            // Technical Capabilities (Max 4-6 recommended)
+            skills: [
+                { name: "Frontend Development", details: "React, Next.js, Tailwind CSS, JavaScript (ES6+)", icon: "fa-brands fa-react", color: "text-cyan-400" },
+                { name: "Backend & Systems", details: "Node.js, Express, Python, Google Apps Script", icon: "fa-solid fa-server", color: "text-emerald-400" },
+                { name: "Database Engineering", details: "PostgreSQL, MongoDB, Firebase Firestore", icon: "fa-solid fa-database", color: "text-blue-400" },
+                { name: "Cloud & Dev Tools", details: "Git, Docker, Cloudflare, Architecture Design", icon: "fa-solid fa-cloud", color: "text-purple-400" }
+            ],
+
+            // Credentials & Certifications
+            certifications: [
+                { title: "AWS Certified Developer", issuer: "Amazon Web Services", date: "2025" },
+                { title: "Advanced Software Engineering Certificate", issuer: "Meta", date: "2025" },
+                { title: "Google Cloud Digital Leader", issuer: "Google", date: "2026" }
+            ],
+
+            // Project Allocations (Max 3 recommended)
+            projects: [
+                {
+                    title: "E-Commerce Core Ecosystem",
+                    description: "A fast, microservices-driven digital transactional storefront displaying real-time updates and secure inventory syncing.",
+                    tags: ["React", "Node.js", "MongoDB"],
+                    githubLink: "#"
+                },
+                {
+                    title: "Analytics Control Panel",
+                    description: "A secure, client-facing dashboard framework visualising operation workflows and live transactional logging feeds.",
+                    tags: ["TypeScript", "Tailwind", "Chart.js"],
+                    githubLink: "#"
+                }
+            ]
+        };
+    </script>
+    <header class="sticky top-0 w-full z-50 bg-[#0b0f19]/80 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#about" id="nav-logo" class="text-xl font-extrabold tracking-wider bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">PORTFOLIO</a>
+            <nav class="flex items-center space-x-6 text-xs md:text-sm font-semibold text-gray-400">
+                <a href="#about" class="hover:text-white transition-colors">About</a>
+                <a href="#skills" class="hover:text-white transition-colors">Skills</a>
+                <a href="#certifications" class="hover:text-white transition-colors">Certifications</a>
+                <a href="#projects" class="hover:text-white transition-colors">Projects</a>
+                <a href="#contact" class="text-purple-400 hover:text-purple-300 transition-colors">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="w-full max-w-5xl mx-auto px-6 relative z-10 space-y-28 pb-24">
+        
+        <section id="about" class="pt-20 max-w-3xl scroll-mt-24">
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-3">
+                Hi, I'm <span id="hero-name" class="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Developer</span>
+            </h1>
+            <h2 id="hero-headline" class="text-xl md:text-2xl font-bold text-gray-300 mb-6"></h2>
+            <p id="hero-bio" class="text-gray-400 text-base md:text-lg leading-relaxed"></p>
+        </section>
+
+        <section id="skills" class="space-y-6 scroll-mt-24">
+            <h2 class="text-xs font-bold tracking-wider text-gray-400 uppercase">Skills & Specializations</h2>
+            <div id="skills-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+        </section>
+
+        <section id="certifications" class="space-y-6 scroll-mt-24">
+            <h2 class="text-xs font-bold tracking-wider text-gray-400 uppercase">Certifications</h2>
+            <div id="certs-container" class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
+        </section>
+
+        <section id="projects" class="space-y-6 scroll-mt-24">
+            <h2 class="text-xs font-bold tracking-wider text-gray-400 uppercase">Selected Projects</h2>
+            <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+        </section>
+
+        <section id="contact" class="py-12 scroll-mt-24 border-t border-white/5 text-center max-w-2xl mx-auto space-y-6">
+            <h2 class="text-2xl md:text-4xl font-extrabold text-white">Get In Touch</h2>
+            <p class="text-gray-400 text-sm">Have an intriguing project proposal, application to deploy, or collaborative opportunity? Send an email message directly.</p>
+            <a id="contact-btn" href="#" class="inline-block px-6 py-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold tracking-wider transition-all shadow-lg shadow-purple-600/20">SEND MAIL MESSAGE</a>
+        </section>
+
+    </main>
+
+    <footer class="w-full max-w-5xl mx-auto px-6 py-10 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-6 relative z-10 text-xs text-gray-500">
+        <div>
+            <p>&copy; <span id="year"></span> <span id="footer-name"></span>. All rights reserved.</p>
+        </div>
+        <div class="flex items-center space-x-6 text-sm">
+            <a id="footer-github" href="#" target="_blank" class="hover:text-white transition-colors" title="GitHub"><i class="fa-brands fa-github text-lg"></i></a>
+            <a id="footer-linkedin" href="#" target="_blank" class="hover:text-blue-400 transition-colors" title="LinkedIn"><i class="fa-brands fa-linkedin-in text-lg"></i></a>
+            <a id="footer-email" href="#" class="hover:text-purple-400 transition-colors" title="Email"><i class="fa-solid fa-envelope text-lg"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').innerText = new Date().getFullYear();
+
+        // Core Layout Content Engine Generation Process
+        function setupPortfolio() {
+            document.title = `${USER_DATA.fullName} | Developer Portfolio`;
+            document.getElementById('nav-logo').innerText = USER_DATA.fullName.toUpperCase();
+            document.getElementById('hero-name').innerText = USER_DATA.fullName;
+            document.getElementById('hero-headline').innerText = USER_DATA.headline;
+            document.getElementById('hero-bio').innerText = USER_DATA.bio;
+            document.getElementById('footer-name').innerText = USER_DATA.fullName;
+            
+            // Setup Core Contact Triggers
+            document.getElementById('contact-btn').href = `mailto:${USER_DATA.contactEmail}`;
+            document.getElementById('footer-email').href = `mailto:${USER_DATA.contactEmail}`;
+            document.getElementById('footer-github').href = USER_DATA.githubUrl;
+            document.getElementById('footer-linkedin').href = USER_DATA.linkedinUrl;
+
+            // Render Capabilities Cards Grid
+            const skillsContainer = document.getElementById('skills-container');
+            USER_DATA.skills.forEach(skill => {
+                skillsContainer.innerHTML += `
+                    <div class="glass-card p-6 rounded-xl flex items-start space-x-4">
+                        <div class="text-xl mt-1 ${skill.color}"><i class="${skill.icon}"></i></div>
+                        <div>
+                            <h3 class="font-bold text-white mb-0.5">${skill.name}</h3>
+                            <p class="text-xs text-gray-400 leading-relaxed">${skill.details}</p>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // Render Certifications Section Layout
+            const certsContainer = document.getElementById('certs-container');
+            USER_DATA.certifications.forEach(cert => {
+                certsContainer.innerHTML += `
+                    <div class="glass-card p-5 rounded-xl space-y-1">
+                        <div class="text-purple-400 text-xs font-semibold tracking-wider flex justify-between items-center">
+                            <span>${cert.issuer}</span>
+                            <span class="text-[10px] text-gray-500">${cert.date}</span>
+                        </div>
+                        <h3 class="font-bold text-sm text-white">${cert.title}</h3>
+                    </div>
+                `;
+            });
+
+            // Render Project Portfolio Display Showcase Layout Loops
+            const projectsContainer = document.getElementById('projects-container');
+            USER_DATA.projects.forEach(project => {
+                const tagsList = project.tags.map(t => `<span class="text-[10px] bg-white/5 text-gray-400 border border-white/10 px-2 py-0.5 rounded">${t}</span>`).join('');
+                
+                // Fallback rendering check to handle incomplete project links cleanly
+                const linkMarkup = (project.githubLink && project.githubLink !== '#') 
+                    ? `<a href="${project.githubLink}" target="_blank" class="inline-flex items-center text-xs text-purple-400 hover:text-purple-300 font-medium space-x-1">
+                            <span><i class="fa-brands fa-github"></i> Source Code</span>
+                            <span>&rarr;</span>
+                       </a>`
+                    : `<span class="text-xs text-gray-600 italic">Code Repository Private</span>`;
+
+                projectsContainer.innerHTML += `
+                    <div class="glass-card p-6 rounded-xl flex flex-col justify-between space-y-4">
+                        <div class="space-y-2">
+                            <div class="flex flex-wrap gap-1.5">${tagsList}</div>
+                            <h3 class="text-lg font-bold text-white">${project.title}</h3>
+                            <p class="text-xs text-gray-400 leading-relaxed">${project.description}</p>
+                        </div>
+                        <div>
+                            ${linkMarkup}
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // Initialize script logic on content payload status ready
+        window.addEventListener('DOMContentLoaded', setupPortfolio);
+    </script>
+</body>
+</html>
